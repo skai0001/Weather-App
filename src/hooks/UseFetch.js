@@ -8,7 +8,7 @@ const UseFetch = (initialUrl) => {
     const [url, setUrl] = useState(initialUrl);
 
     useEffect(() => {
-        if(!url) return;
+        if (!url) return;
         setIsLoading(true);
         // clear old search
         setData(null);
@@ -18,21 +18,22 @@ const UseFetch = (initialUrl) => {
             .then((response) => response.json())
             .then((data) => {
 
-                // error handling for nonexistent data
+                // error handling for non existing data
                 setIsLoading(false);
-                if(data.cod >= 400) {
+                if (data.cod >= 400) {
                     setError(data.message);
                     return;
                 }
                 setData(data);
+
             })
             .catch((error) => {
                 setIsLoading(false);
                 setError(error);
             });
     }, [url]);
-
-    return { data, error, isLoading, setUrl };
+    //console.log(data)
+    return {data, error, isLoading, setUrl};
 };
 
 export default UseFetch;
