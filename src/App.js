@@ -21,7 +21,7 @@ const App = () => {
     };
 
     return (
-        <div className="container">
+        <div className="App">
 
             <CitySelector onSearch={fetchData}/>
             {getContent()}
