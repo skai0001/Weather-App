@@ -1,5 +1,4 @@
-import React, {Fragment, useState} from 'react';
-import {Row, Col, FormControl, Button} from 'react-bootstrap';
+import React, {useState} from 'react';
 
 const CitySelector = ({onSearch}) => {
     const [city, setCity] = useState('');
@@ -14,35 +13,27 @@ const CitySelector = ({onSearch}) => {
         onSearch(city)
     }
 
-    console.log(alert);
-
     return (
-         <Fragment>
-             <Row>
-                 <Col>
-                     <h1>Search your city</h1>
-                 </Col>
-             </Row>
-             <Row>
-                 <Col xs={4}>
-                     <FormControl
-                         required
-                         placeholder="Enter city"
-                         type="text"
-                         onChange={handleChange}
-                         value={city}
-                     />
-                 </Col>
-             </Row>
-             <Row>
-                 <Col>
-                     <Button onClick={handleSubmit}>Check Weather</Button>
-                 </Col>
-             </Row>
-         </Fragment>
 
+        <div className="container">
+            <form onSubmit={handleSubmit} className='form'>
+                <input
+                    type='text'
+                    placeholder='Search Cities...'
+                    value={city}
+                    onChange={handleChange}
+                />
+                <input
+                    type='submit'
+                    value='Search'
+                    className='btn btn-dark btn-block'
+                />
+            </form>
+
+        </div>
     );
 };
+
 
 export default CitySelector;
 
