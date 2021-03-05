@@ -1,35 +1,39 @@
 import React from 'react';
-import {Card} from 'react-bootstrap';
 
 const WeatherCard = ({dt, temp, temp_min, temp_max, main, icon}) => {
     // create a date object with Date class constructor
+    const weekDays =['Sun','Mon','Tues','Wed','Thu','Fri','Sat']
     const date = new Date(dt);
-    console.log(date.toTimeString());
+    const day = weekDays[date.getDay()];
+
     const temperature = Math.round(temp);
+    const minTemp = Math.round(temp_min);
+    const maxTemp = Math.round(temp_max);
+
 
     return (
-        <>
 
-            <Card>
-                <Card.Img
-                    variant="top"
-                    // get the src from example url and pass the icon prop for icon code
-                    src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-                />
-                <Card.Body>
-                    <Card.Title>{main}</Card.Title>
-                    {/*  datetime is received in milliseconds, let's turn into local date time */}
-                    <p>{temperature}°C</p>
-                    <p>
-                        {date.toDateString()} - {date.toLocaleTimeString()}
-                    </p>
-                    {/* minimum temperature */}
-                    <p>Min: {temp_min}</p>
-                    {/* maximum temperature */}
-                    <p>Max: {temp_max}</p>
-                </Card.Body>
-            </Card>
-        </>
+        <div className="card text-center" >
+            <h6>{day}</h6>
+            <h6>{date.toLocaleDateString()}</h6>
+            <h6>{date.toLocaleTimeString()}</h6>
+            <img
+                src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+                alt=''
+                className='round-img'
+                style={imgStyle}
+            />
+            <h6>{main}</h6>
+            <h6>{temperature}°C</h6>
+            <h6>Low: {minTemp}°C / High: {maxTemp}°C</h6>
+
+        </div>
     );
 };
+
+const imgStyle ={
+    width:'70%',
+    margin:'auto'
+}
+
 export default WeatherCard;

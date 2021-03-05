@@ -1,9 +1,10 @@
 import React from 'react';
 import CitySelector from './components/CitySelector';
 import './App.css';
-import {Container} from 'react-bootstrap';
 import UseFetch from './hooks/UseFetch';
 import WeatherList from './components/WeatherList';
+import Navbar from "./components/Navbar";
+import Alert from './components/Alert';
 
 const App = () => {
     const {data, error, isLoading, setUrl} = UseFetch();
@@ -14,17 +15,23 @@ const App = () => {
     }
 
     const getContent = () => {
-        if (error) return <h2>Error when fetching: {error}</h2>
+        if (error) return <Alert error={error}/>
         if (!data && isLoading) return <h2>LOADING...</h2>
         if (!data) return null;
         return <WeatherList weathers={data.list}/>
     };
 
+
+
+
     return (
-        <div className="App">
+        <div className="container-fluid">
+            <Navbar/>
 
             <CitySelector onSearch={fetchData}/>
-            {getContent()}
+            <div className='container'>
+                {getContent()}
+            </div>
 
         </div>
 

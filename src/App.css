@@ -1,8 +1,56 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* Global Styles */
+:root {
+    --primary-color: #dc3545;
+    --dark-color: #333333;
+    --light-color: #f4f4f4;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
-.row {
-    justify-content: center;
-    margin: 15px 0;
+/* Form */
+input {
+    margin: 1.2rem 0;
+}
+input[type='text'],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+}
+
+input[type='submit'],
+button {
+    font: inherit;
+}
+
+/* Cards */
+.card {
+    padding: 1rem;
+    border: #ccc 1px dotted;
+    margin: 1rem 0;
 }
