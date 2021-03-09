@@ -1,8 +1,7 @@
 import React from 'react'
 
-
 const alert = ({error}) => {
-    return(
+    return (
         <div className="alert alert-primary" role="alert">
             {error}
         </div>

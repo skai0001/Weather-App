@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const CitySelector = ({onSearch}) => {
+const SearchCity = ({onSearch}) => {
     const [city, setCity] = useState('');
 
 
@@ -10,7 +10,7 @@ const CitySelector = ({onSearch}) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSearch(city)
+        onSearch(city);
     }
 
     return (
@@ -29,12 +29,11 @@ const CitySelector = ({onSearch}) => {
                     className='btn btn-dark btn-block'
                 />
             </form>
-
         </div>
     );
 };
 
 
-export default CitySelector;
+export default SearchCity;
 
 

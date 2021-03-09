@@ -7,6 +7,7 @@ const UseFetch = (initialUrl) => {
     const [isLoading, setIsLoading] = useState(null);
     const [url, setUrl] = useState(initialUrl);
 
+
     useEffect(() => {
         if (!url) return;
         setIsLoading(true);
@@ -15,6 +16,7 @@ const UseFetch = (initialUrl) => {
         setError(null);
 
         fetch(url)
+
             .then((response) => response.json())
             .then((data) => {
 
