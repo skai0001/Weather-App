@@ -1,3 +1,6 @@
+5 day / 3 hour weather forecast
+![Screen Shot 2021-03-08 at 9 35 13 PM](https://user-images.githubusercontent.com/25314784/110410335-b9f02d00-8056-11eb-9b44-c338112df411.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
