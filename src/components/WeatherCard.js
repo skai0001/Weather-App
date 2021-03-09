@@ -12,7 +12,6 @@ const WeatherCard = ({dt, temp, temp_min, temp_max, main, icon}) => {
 
 
     return (
-
         <div className="card text-center" >
             <h6>{day}</h6>
             <h6>{date.toLocaleDateString()}</h6>
@@ -26,7 +25,6 @@ const WeatherCard = ({dt, temp, temp_min, temp_max, main, icon}) => {
             <h6>{main}</h6>
             <h6>{temperature}°C</h6>
             <h6>Low: {minTemp}°C / High: {maxTemp}°C</h6>
-
         </div>
     );
 };

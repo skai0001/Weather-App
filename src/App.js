@@ -1,10 +1,11 @@
 import React from 'react';
-import CitySelector from './components/CitySelector';
+import SearchCity from './components/SearchCity';
 import './App.css';
-import UseFetch from './hooks/UseFetch';
+import UseFetch from './custom-hooks/UseFetch';
 import WeatherList from './components/WeatherList';
 import Navbar from "./components/Navbar";
 import Alert from './components/Alert';
+import Spinner from './components/Spinner';
 
 const App = () => {
     const {data, error, isLoading, setUrl} = UseFetch();
@@ -16,26 +17,21 @@ const App = () => {
 
     const getContent = () => {
         if (error) return <Alert error={error}/>
-        if (!data && isLoading) return <h2>LOADING...</h2>
+        if (!data && isLoading) return <> <Spinner/><h2>LOADING...</h2></>
         if (!data) return null;
         return <WeatherList weathers={data.list}/>
     };
 
-
-
-
     return (
         <div className="container-fluid">
             <Navbar/>
-
-            <CitySelector onSearch={fetchData}/>
+            <SearchCity onSearch={fetchData}/>
             <div className='container'>
+
                 {getContent()}
+
             </div>
-
         </div>
-
-
     );
 };
 

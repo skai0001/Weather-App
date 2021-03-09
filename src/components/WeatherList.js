@@ -2,9 +2,7 @@ import React from 'react'
 import WeatherCard from './WeatherCard'
 
 const WeatherList = ({weathers}) => {
-
     return (
-
         <div style={userStyle}>
             {weathers.map(({dt, main, weather}) => (
                 <WeatherCard
